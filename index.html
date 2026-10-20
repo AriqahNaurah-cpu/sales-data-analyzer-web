@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Data Analyzer</title><link rel="stylesheet" href="style.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head>
+<body><div class="layout"><aside><div class="brand">▥ <span><b>Sales Analyzer</b><small>Dashboard Penjualan</small></span></div>
+<h3>Data & Filter</h3><label class="upload" for="csvFile">↑ Unggah data CSV</label><input id="csvFile" type="file" accept=".csv">
+<p class="muted" id="dataStatus">Menggunakan dataset contoh.</p>
+<label for="categoryFilter">Kategori produk</label><select id="categoryFilter"><option value="all">Semua kategori</option></select>
+<label for="startDate">Dari tanggal</label><input id="startDate" type="date"><label for="endDate">Sampai tanggal</label><input id="endDate" type="date">
+<label for="searchInput">Cari produk/kategori</label><input id="searchInput" type="search" placeholder="Ketik kata kunci">
+<button id="resetFilters" class="secondary">Reset filter</button></aside>
+<main><header><div><p class="eyebrow">DASHBOARD ANALITIK</p><h1>Sales Data Analyzer 🛍️</h1><p class="muted">Pahami performa penjualan toko melalui ringkasan, filter, dan visualisasi data.</p></div><button id="downloadCsv">↓ Unduh hasil CSV</button></header>
+<section class="cards"><article><span>Total omzet</span><strong id="totalRevenue">Rp0</strong><small>Nilai penjualan terfilter</small></article><article><span>Jumlah transaksi</span><strong id="transactionCount">0</strong><small>Baris transaksi</small></article><article><span>Produk terjual</span><strong id="unitsSold">0</strong><small>Total kuantitas</small></article><article><span>Produk terlaris</span><strong id="bestProduct">—</strong><small id="bestProductMeta">Berdasarkan jumlah</small></article></section>
+<section class="insight"><b>✦ Ringkasan otomatis</b><p id="insightText">Memproses data...</p></section>
+<section class="charts"><article class="panel"><h2>Tren omzet</h2><p class="muted">Omzet berdasarkan tanggal transaksi</p><div class="chart"><canvas id="revenueChart"></canvas></div></article><article class="panel"><h2>Produk terlaris</h2><p class="muted">Jumlah unit per produk</p><div class="chart"><canvas id="productChart"></canvas></div></article></section>
+<section class="panel table-panel"><div class="table-title"><div><h2>Data transaksi</h2><p class="muted" id="tableSummary">Menampilkan transaksi</p></div><span id="rowCount">0 baris</span></div><div class="scroll"><table><thead><tr><th>Tanggal</th><th>Produk</th><th>Kategori</th><th>Jumlah</th><th>Harga satuan</th><th>Omzet</th></tr></thead><tbody id="transactionRows"></tbody></table></div><p id="emptyState" hidden class="muted">Tidak ada transaksi yang cocok dengan filter.</p></section>
+<footer>Sales Data Analyzer • HTML, CSS, dan JavaScript</footer></main></div><script src="script.js"></script></body></html>
